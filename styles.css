@@ -1,0 +1,113 @@
+:root{
+  --bg1:#0b1020;
+  --bg2:#141a35;
+  --card:rgba(255,255,255,0.10);
+  --border:rgba(255,255,255,0.18);
+  --text:#eef2ff;
+  --muted:rgba(238,242,255,0.78);
+  --brand:#7c5cff;
+}
+
+/* Reset */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:
+    radial-gradient(900px 500px at 15% 10%, #2b2f6b, transparent 60%),
+    radial-gradient(800px 520px at 85% 15%, #0ea5e9, transparent 58%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--text);
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1120px;margin:auto;padding:0 20px}
+
+/* Nav */
+.nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(11,16,32,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+}
+.brand{display:flex;gap:10px;font-weight:900}
+.brand-badge{
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),#38bdf8);
+}
+.nav-links{display:flex;flex-wrap:wrap;gap:10px 14px}
+.nav-links a{font-size:14px;color:var(--muted);padding:6px 8px;border-radius:999px}
+.nav-links a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+
+/* Card */
+.section{padding:60px 0}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 18px 60px rgba(0,0,0,.35);
+}
+
+h1{font-size:38px}
+h2{margin-top:28px;font-size:22px}
+p{color:var(--muted)}
+
+/* Payment layout */
+.payment-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  margin:18px 0 36px;
+}
+
+.payment-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+/* KEY FIX: JPEG-safe image handling */
+.payment-card img{
+  width:100%;
+  max-width:190px;
+  height:auto;
+  border-radius:12px;
+  display:block;
+  margin:0 auto 14px;
+}
+
+/* Labels instead of buttons */
+.pay-label{
+  display:block;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:700;
+  background:rgba(255,255,255,.12);
+}
+.pay-label.primary{
+  background:linear-gradient(135deg,var(--brand),#38bdf8);
+}
+.pay-label.alipay{
+  background:#1677ff;
+  color:#fff;
+}
+
+/* Refund */
+.refund-title{color:#e74c3c}
+.refund{color:#e74c3c;line-height:1.8}
+
+/* Footer */
+.footer{
+  border-top:1px solid var(--border);
+  padding:18px 0;
+  text-align:center;
+  color:var(--muted);
+}

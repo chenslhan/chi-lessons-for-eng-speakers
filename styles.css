@@ -1,4 +1,4 @@
-/* 1. Global Variables & Resets */
+/* --- Variables & Reset --- */
 :root {
   --bg1: #0b1020;
   --bg2: #141a35;
@@ -8,71 +8,50 @@
   --muted: rgba(238, 242, 255, 0.78);
   --brand: #7c5cff;
   --accent: #22c55e;
-  --warning: #ff4d4d;
+  --paypal: #0070ba;
+  --wise: #00b9ff;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background:
-    radial-gradient(900px 500px at 15% 10%, #2b2f6b, transparent 60%),
-    radial-gradient(800px 520px at 85% 15%, #0ea5e9, transparent 58%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, var(--bg1), var(--bg2));
   color: var(--text);
   line-height: 1.6;
-  min-height: 100vh;
 }
 
-a { text-decoration: none; color: inherit; }
-.container { max-width: 1120px; margin: auto; padding: 0 20px; }
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-/* 2. Navigation Bar */
+/* --- Navigation --- */
 .nav {
   position: sticky; top: 0; z-index: 10;
   backdrop-filter: blur(10px);
   background: rgba(11, 16, 32, 0.86);
   border-bottom: 1px solid var(--border);
 }
-
-.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 18px; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; white-space: nowrap; }
-.brand-badge { 
-  width: 32px; height: 32px; border-radius: 10px; 
-  background: linear-gradient(135deg, var(--brand), #38bdf8); 
-}
-
-.nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 14px; }
-.nav-links a { 
-  font-size: 13px; color: var(--muted); padding: 6px 10px; 
-  border-radius: 8px; transition: all 0.3s ease; 
-}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+.brand-badge { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--brand), #38bdf8); }
+.nav-links { display: flex; gap: 12px; }
+.nav-links a { font-size: 13px; color: var(--muted); padding: 6px 10px; border-radius: 8px; }
 .nav-links a:hover { background: var(--brand); color: white; }
 
-/* 3. Common Card & Section */
-.section { padding: 48px 0; }
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-}
-
-/* 4. Payment Page Specific Grid */
+/* --- Payment Layout --- */
 .payment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
 }
 
 .payment-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
   text-align: center;
 }
 
@@ -83,55 +62,55 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 20px;
 }
 
-/* Fix for Jumbled QR Codes */
+/* 3-Column QR Wrapper Fix */
 .qr-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
   width: 100%;
   margin-bottom: 25px;
 }
 
 .qr-item {
-  flex: 1;
   background: white;
-  padding: 10px;
-  border-radius: 12px;
-  max-width: 135px; /* Ensures QR codes don't grow too large */
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .qr-item span {
   display: block;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 900;
-  color: #1a1a1a;
-  margin-bottom: 6px;
+  color: #333;
+  margin-bottom: 4px;
   text-transform: uppercase;
 }
 
 .qr-item img {
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
-/* 5. Buttons */
+/* --- Buttons --- */
 .btn {
-  display: inline-block;
-  padding: 14px 20px;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
   border-radius: 12px;
-  font-weight: 800;
+  font-weight: bold;
   text-align: center;
-  transition: transform 0.2s ease;
-  cursor: pointer;
-  border: none;
+  text-decoration: none;
   font-size: 14px;
+  transition: transform 0.2s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: linear-gradient(135deg, var(--brand), #38bdf8); color: white; }
-.btn-secondary { background: #00a0e9; color: white; } /* Alipay Blue */
-.btn-full { width: 100%; margin-top: 10px; }
+.btn-paypal { background: var(--paypal); color: white; }
+.btn-wise { background: var(--wise); color: white; }
 
-/* 6. Footer */
-.footer { padding: 40px; text-align: center; color: var(--muted); font-size: 14px; }
+.section { padding: 60px 0; }
+.footer { padding: 40px; text-align: center; color: var(--muted); }

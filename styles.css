@@ -62,7 +62,7 @@ body {
   margin-bottom: 20px;
 }
 
-/* 3-Column QR Wrapper Fix */
+/* 3-Column QR System */
 .qr-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

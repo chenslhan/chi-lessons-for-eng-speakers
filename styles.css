@@ -1,4 +1,181 @@
-/* About Page Specific Layout */
+/* 1. Global Variables & Resets */
+:root {
+  --bg1: #0b1020;
+  --bg2: #141a35;
+  --card: rgba(255, 255, 255, 0.10);
+  --border: rgba(255, 255, 255, 0.18);
+  --text: #eef2ff;
+  --muted: rgba(238, 242, 255, 0.78);
+  --brand: #7c5cff;
+  --accent: #22c55e;
+  --warning: #ff4d4d;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  /* Optimized for English typography */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(900px 500px at 15% 10%, #2b2f6b, transparent 60%),
+    radial-gradient(800px 520px at 85% 15%, #0ea5e9, transparent 58%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1120px; margin: auto; padding: 0 20px; }
+
+/* 2. Navigation Bar */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 16, 32, 0.86);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 18px; }
+
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; white-space: nowrap; }
+
+.brand-badge { 
+  width: 32px; height: 32px; border-radius: 10px; 
+  background: linear-gradient(135deg, var(--brand), #38bdf8); 
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.25); 
+}
+
+.nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 14px; }
+
+.nav-links a { 
+  font-size: 13px; color: var(--muted); padding: 6px 10px; 
+  border-radius: 8px; transition: all 0.3s ease; 
+}
+
+.nav-links a:hover { 
+  background: var(--brand); color: white; 
+  box-shadow: 0 4px 15px rgba(124, 92, 255, 0.3); 
+}
+
+/* 3. Hero & Base Cards */
+.hero { padding: 60px 0; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: stretch; }
+
+@media (max-width: 900px) { 
+  .hero-grid { grid-template-columns: 1fr; } 
+  .hero { padding: 40px 0; } 
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+h1 { font-size: 38px; line-height: 1.2; margin: 0 0 16px; }
+h2 { font-size: 24px; margin: 0 0 15px; }
+p { color: var(--muted); margin-bottom: 15px; }
+
+/* 4. Buttons & Badges */
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-align: center;
+  margin: 8px 10px 0 0;
+  transition: transform 0.2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: scale(0.98); }
+
+.btn-primary { background: linear-gradient(135deg, var(--brand), #38bdf8); color: white; }
+.btn-secondary { background: rgba(255, 255, 255, 0.1); border: 1px solid var(--border); color: white; }
+.btn-green { background: var(--accent); color: white; }
+.btn-full { display: block; width: 100%; margin: 5px 0; }
+
+.badge { 
+  display: inline-block; margin-top: 15px; padding: 6px 12px; 
+  background: rgba(255, 255, 255, 0.1); border-radius: 20px; 
+  font-size: 12px; border: 1px solid var(--border); 
+}
+
+/* 5. "How My Lessons Work" Section */
+.lesson-work-card { border-left: 5px solid var(--brand); }
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.work-item { position: relative; padding-left: 50px; }
+
+.step-num {
+  position: absolute; left: 0; top: 0;
+  width: 36px; height: 36px;
+  background: var(--brand);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; color: white;
+}
+
+/* Red High-Visibility Payment Warning */
+.payment-mandate {
+  margin: 15px 0;
+  padding: 12px;
+  background: rgba(255, 77, 77, 0.15);
+  border: 2px solid var(--warning);
+  color: var(--warning);
+  font-weight: 900;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 8px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.cta-mini { text-align: center; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 25px; }
+
+/* 6. Payment Page Styling */
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.payment-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.price-tag {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  margin: 10px 0;
+}
+
+.qr-container {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  margin: 15px auto;
+  width: fit-content;
+}
+
+.qr-image { display: block; width: 100%; max-width: 180px; }
+
+/* 7. About Page Profile Styling */
 .about-grid {
   display: grid;
   grid-template-columns: 320px 1fr;
@@ -6,17 +183,12 @@
   align-items: start;
 }
 
-@media (max-width: 800px) {
-  .about-grid { grid-template-columns: 1fr; }
-}
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
 
-.about-profile {
-  text-align: center;
-  padding: 40px 20px;
-}
+.about-profile { text-align: center; padding: 40px 20px; }
 
 .profile-image-wrapper {
-  width: 180px; /* Reduced size for a professional look */
+  width: 180px;
   height: 180px;
   margin: 0 auto 20px;
   border-radius: 50%;
@@ -25,18 +197,9 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.profile-image { width: 100%; height: 100%; object-fit: cover; }
 
-.profile-tagline {
-  font-weight: bold;
-  color: var(--brand);
-  font-size: 14px;
-  margin-top: 5px;
-}
+.profile-tagline { font-weight: bold; color: var(--brand); font-size: 14px; margin-top: 5px; }
 
 .about-content h1 {
   margin-top: 0;
@@ -46,32 +209,21 @@
   margin-bottom: 25px;
 }
 
-.info-group {
-  margin-top: 25px;
-}
-
-.info-group h3 {
-  font-size: 18px;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-.info-group ul {
-  list-style: none;
-  padding-left: 0;
-}
-
+.info-group { margin-top: 25px; }
+.info-group h3 { font-size: 18px; color: var(--text); margin-bottom: 10px; }
+.info-group ul { list-style: none; padding-left: 0; }
 .info-group li {
   position: relative;
   padding-left: 25px;
   margin-bottom: 8px;
   color: var(--muted);
 }
-
 .info-group li::before {
-  content: "•";
-  color: var(--brand);
-  font-weight: bold;
-  position: absolute;
-  left: 0;
+  content: "•"; color: var(--brand); font-weight: bold;
+  position: absolute; left: 0;
 }
+
+/* 8. Footer & Media */
+.section { padding: 48px 0; }
+.video iframe { width: 100%; aspect-ratio: 16/9; border-radius: 15px; border: none; }
+.footer { padding: 40px; text-align: center; color: var(--muted); font-size: 14px; }.

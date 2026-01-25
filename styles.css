@@ -1,116 +1,132 @@
-/* --- Variables & Reset --- */
+/* 1. Global Variables & Modern Theme */
 :root {
-  --bg1: #0b1020;
-  --bg2: #141a35;
-  --card: rgba(255, 255, 255, 0.10);
-  --border: rgba(255, 255, 255, 0.18);
-  --text: #eef2ff;
-  --muted: rgba(238, 242, 255, 0.78);
-  --brand: #7c5cff;
-  --accent: #22c55e;
-  --paypal: #0070ba;
-  --wise: #00b9ff;
+  --bg-dark: #070b14;
+  --bg-accent: #111827;
+  --card-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --brand-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --accent-green: #10b981;
+  --warning-red: #ef4444;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-  background: linear-gradient(180deg, var(--bg1), var(--bg2));
-  color: var(--text);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  color: var(--text-main);
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-.container { max-width: 1200px; margin: auto; padding: 0 20px; }
+.container { max-width: 1100px; margin: auto; padding: 0 24px; }
 
-/* --- Navigation --- */
+/* 2. Trendy Navigation */
 .nav {
-  position: sticky; top: 0; z-index: 10;
-  backdrop-filter: blur(10px);
-  background: rgba(11, 16, 32, 0.86);
-  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(7, 11, 20, 0.7);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 16px 0;
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; }
-.brand-badge { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--brand), #38bdf8); }
-.nav-links { display: flex; gap: 12px; }
-.nav-links a { font-size: 13px; color: var(--muted); padding: 6px 10px; border-radius: 8px; }
-.nav-links a:hover { background: var(--brand); color: white; }
-
-/* --- Payment Layout --- */
-.payment-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 24px;
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: 18px; }
+.brand-badge { width: 32px; height: 32px; border-radius: 8px; background: var(--brand-gradient); }
+.nav-links a { 
+  font-size: 14px; color: var(--text-muted); text-decoration: none; margin-left: 20px;
+  transition: color 0.3s;
 }
+.nav-links a:hover { color: #fff; }
 
-.payment-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  text-align: center;
-}
+/* 3. Hero Section Overhaul */
+.hero { padding: 100px 0 60px; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
 
-.price-tag {
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--accent);
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+
+.flexibility-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
-/* 3-Column QR System */
-.qr-wrapper {
+h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.1; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.02em; }
+.hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; max-width: 600px; }
+
+/* 4. Glassmorphism Cards */
+.card {
+  background: var(--card-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+/* 5. How My Lessons Work - Grid Layout ( Casual & Spaced ) */
+.work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  width: 100%;
-  margin-bottom: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
 }
 
-.qr-item {
-  background: white;
-  padding: 6px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.work-item { padding: 20px; }
+.work-item h4 { font-size: 20px; margin: 15px 0 10px; font-weight: 700; }
+.work-item p { color: var(--text-muted); font-size: 15px; }
+
+.step-num {
+  width: 40px; height: 40px;
+  background: var(--brand-gradient);
+  color: white; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
 }
 
-.qr-item span {
-  display: block;
-  font-size: 9px;
-  font-weight: 900;
-  color: #333;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-
-.qr-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 2px;
-}
-
-/* --- Buttons --- */
-.btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 12px;
-  font-weight: bold;
+/* 6. Red High-Visibility Payment Box */
+.payment-mandate {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid var(--warning-red);
+  color: var(--warning-red);
+  padding: 20px;
+  border-radius: 16px;
   text-align: center;
-  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   font-size: 14px;
-  transition: transform 0.2s;
+  margin: 20px 0;
 }
-.btn:hover { transform: translateY(-2px); }
-.btn-paypal { background: var(--paypal); color: white; }
-.btn-wise { background: var(--wise); color: white; }
 
-.section { padding: 60px 0; }
-.footer { padding: 40px; text-align: center; color: var(--muted); }
+/* 7. Buttons */
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+}
+.btn-primary { background: var(--brand-gradient); color: white; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
+.btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-glass); margin-left: 10px; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4); }
+.btn-full { display: block; width: 100%; text-align: center; margin-top: 15px; }
+
+/* 8. Footer & Misc */
+.section { padding: 80px 0; }
+.cta-mini { text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-glass); }
+.footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 13px; }

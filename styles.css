@@ -6,9 +6,9 @@
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --brand-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --cta-gradient: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%); /* NEW HIGH VISIBILITY COLOR */
-  --accent-green: #10b981;
-  --warning-red: #ef4444;
+  --cta-orange: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%);
+  --cta-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --cta-pink: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,75 +30,72 @@ body {
 .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; margin-left: 20px; font-weight: 600; }
 .nav-links a:hover { color: white; }
 
-/* --- Hero --- */
+/* --- Hero Section --- */
 .hero { padding: 80px 0; }
 .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-.flexibility-badge { display: inline-block; padding: 6px 14px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: #818cf8; border-radius: 100px; font-size: 12px; font-weight: 700; margin-bottom: 20px; }
 h1 { font-size: 48px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; }
 .hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
-.hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
 
-/* --- High Visibility CTA Button Style --- */
-.btn-call-to-action {
-  background: var(--cta-gradient) !important;
-  color: #fff !important;
-  font-weight: 800 !important;
-  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.btn-call-to-action:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 15px 40px rgba(255, 69, 0, 0.6);
+/* --- BUTTONS: THE FIX --- */
+.btn {
+  display: inline-block;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* --- Work & Mandate --- */
-.payment-mandate { background: rgba(239, 68, 68, 0.1); border: 2px solid var(--warning-red); color: var(--warning-red); padding: 20px; border-radius: 16px; text-align: center; font-weight: 800; margin: 30px 0; font-size: 14px; }
+/* 1. PRICING BUTTON */
+.btn-primary { 
+  background: var(--brand-gradient); 
+  color: white !important; 
+}
+
+/* 2. BOOK 50-MIN (THE VIVID ONE) */
+.btn-cta-booking {
+  background: var(--cta-orange) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 3. CALIBRATION (THE GREEN ONE) */
+.btn-cta-calibration {
+  background: var(--cta-green) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* 4. CURRENT STUDENTS (THE PINK ONE) */
+.btn-student-booking {
+  background: var(--cta-pink) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* --- Content Cards --- */
+.card { background: var(--card-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 24px; padding: 40px; }
+.payment-mandate { background: rgba(239, 68, 68, 0.1); border: 2px solid #ef4444; color: #ef4444; padding: 20px; border-radius: 16px; text-align: center; font-weight: 800; margin: 30px 0; }
 .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
 .step-num { width: 40px; height: 40px; background: var(--brand-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 15px; }
 
-/* --- Methodology & Roadmap --- */
-.alt-bg { background: rgba(255,255,255,0.02); padding: 80px 0; }
-.methodology-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-.video-container iframe { width: 100%; aspect-ratio: 16/9; border-radius: 20px; border: 1px solid var(--border-glass); }
-.roadmap-img-card { padding: 10px; transition: transform 0.3s ease; }
-.roadmap-img-card:hover { transform: scale(1.02); }
-.full-roadmap-img { width: 100%; height: auto; border-radius: 14px; display: block; cursor: zoom-in; }
-
-/* --- Payment & QR Code Fixes --- */
-.payment-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; }
-.tab-btn { padding: 12px 24px; background: transparent; border: 1px solid var(--border-glass); color: var(--text-muted); border-radius: 100px; cursor: pointer; font-weight: 700; }
-.tab-btn.active { background: var(--brand-gradient); color: white; border: none; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-.payment-card { padding: 40px; text-align: center; position: relative; }
-.featured { border: 2px solid #a855f7; }
-.best-value { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); background: #a855f7; color: white; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 40px; }
-
-.qr-wrapper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 25px 0; }
-.qr-item { background: white; padding: 8px; border-radius: 12px; transition: transform 0.2s; }
-.qr-item:hover { transform: scale(1.05); border: 1px solid #6366f1; }
-.qr-item img { width: 100%; max-width: 100px; height: auto; display: block; margin: 0 auto; cursor: zoom-in; }
-.qr-item span { color: #333; font-size: 9px; font-weight: 800; display: block; margin-bottom: 5px; }
-
-/* --- Buttons --- */
-.btn { display: inline-block; padding: 14px 20px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; margin-bottom: 8px; text-align: center; }
-.btn-primary { background: var(--brand-gradient); color: white; }
-.btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-glass); }
-.btn-student-booking { background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%); color: white; box-shadow: 0 10px 15px rgba(236, 72, 153, 0.2); }
-.btn-wise { background: #00b9ff; color: white; }
-.btn-paypal { background: #0070ba; color: white; }
-.btn-full { display: block; width: 100%; }
-.btn:hover { transform: translateY(-3px); opacity: 0.9; }
-
-.card { background: var(--card-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 24px; padding: 30px; }
-.price-tag { font-size: 36px; font-weight: 800; color: var(--accent-green); margin: 10px 0; }
 .footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 13px; }
 
 @media (max-width: 900px) {
-  .hero-grid, .methodology-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-actions { align-items: center; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-actions { align-items: center; width: 100%; }
+  .btn { width: 100%; }
 }

@@ -1,45 +1,99 @@
+/* 1. Global Variables & Resets */
 :root {
-  --bg1: #0b1020;
-  --bg2: #141a35;
-  --card: rgba(255, 255, 255, 0.10);
-  --border: rgba(255, 255, 255, 0.18);
-  --text: #eef2ff;
-  --muted: rgba(238, 242, 255, 0.78);
-  --brand: #7c5cff;
-  --accent: #22c55e;
-  --warning: #ff4d4d;
+  --bg-dark: #070b14;
+  --card-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --brand-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --cta-orange: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%);
+  --cta-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --cta-pink: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  margin: 0; font-family: system-ui, sans-serif;
-  background: linear-gradient(180deg, var(--bg1), var(--bg2));
-  color: var(--text); line-height: 1.6; min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  background-image: radial-gradient(at 0% 0%, #1a1e2e 0, transparent 50%), radial-gradient(at 100% 0%, #2e1a2e 0, transparent 50%);
+  color: var(--text-main);
+  line-height: 1.6;
 }
 
-.container { max-width: 1120px; margin: auto; padding: 0 20px; }
-.nav { position: sticky; top: 0; z-index: 10; background: rgba(11, 16, 32, 0.9); border-bottom: 1px solid var(--border); padding: 14px 0; }
+.container { max-width: 1100px; margin: auto; padding: 0 24px; }
+
+/* 2. Navigation */
+.nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background: rgba(7, 11, 20, 0.7); border-bottom: 1px solid var(--border-glass); padding: 16px 0; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-.brand-badge { width: 32px; height: 32px; background: var(--brand); border-radius: 8px; display: inline-block; margin-right: 8px; vertical-align: middle; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; color: white; }
+.brand-badge { width: 30px; height: 30px; background: var(--brand-gradient); border-radius: 8px; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; margin-left: 20px; font-weight: 600; }
+.nav-links a:hover { color: white; }
 
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 30px; margin-bottom: 20px; }
+/* 3. Hero & Video Section */
+.hero { padding: 60px 0; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.hero-content h1 { font-size: 42px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; }
+.hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
+.hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
 
-.btn { display: inline-block; padding: 14px 24px; border-radius: 12px; font-weight: 800; text-align: center; text-decoration: none; transition: transform 0.2s; }
-.btn-primary { background: linear-gradient(135deg, var(--brand), #38bdf8); color: white; }
-.btn-secondary { background: rgba(255, 255, 255, 0.1); border: 1px solid var(--border); color: white; }
-.btn-full { display: block; width: 100%; margin: 8px 0; }
+/* Video Card Styling */
+.intro-video { width: 100%; border-radius: 12px; }
+.video-card { padding: 15px; text-align: center; }
+.video-caption { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
 
-.price-tag { font-size: 32px; font-weight: 900; color: var(--accent); margin: 10px 0; }
-
-/* FIX FOR QR CODES */
-.qr-container {
-  background: white; padding: 10px; border-radius: 12px;
-  margin: 15px auto; width: fit-content;
+/* 4. Buttons (High Visibility) */
+.btn {
+  display: inline-block; padding: 16px 24px; border-radius: 14px;
+  font-weight: 800; text-decoration: none; transition: all 0.3s ease;
+  border: none; cursor: pointer; text-align: center; font-size: 16px;
+  color: white !important; margin-top: 5px; width: 100%;
 }
-.qr-image { display: block; width: 100%; max-width: 180px; height: auto; }
+@media(min-width: 600px) { .btn { width: auto; } }
 
-.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 30px; }
-.payment-mandate { padding: 12px; border: 2px solid var(--warning); color: var(--warning); font-weight: 900; text-align: center; border-radius: 8px; margin-bottom: 20px; }
+.btn-primary { background: var(--brand-gradient); }
+.btn-cta-booking { background: var(--cta-orange) !important; box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4); }
+.btn-cta-calibration { background: var(--cta-green) !important; }
+.btn-student-booking { background: var(--cta-pink) !important; }
+.btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+.btn-full { width: 100%; margin-top: 10px; }
 
-.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.work-item { position: relative; padding-left: 50px; }
-.step-num { position: absolute; left: 0; top: 0; width: 36px; height: 36px; background: var(--brand); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; }
+/* 5. Roadmap Section */
+.roadmap-image { width: 100%; height: auto; border-radius: 12px; display: block; margin-top: 20px; }
+
+/* 6. Payment Grid (The Fix) */
+.payment-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px; 
+  margin-top: 40px; 
+}
+.payment-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-glass);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+}
+.price-tag { font-size: 28px; font-weight: 800; color: #4ade80; margin: 15px 0; }
+.qr-box { 
+  background: white; 
+  padding: 10px; 
+  border-radius: 12px; 
+  margin: 15px auto; 
+  width: 150px; 
+  height: 150px;
+  display: flex; align-items: center; justify-content: center;
+}
+.qr-img { width: 100%; height: auto; display: block; }
+
+/* 7. General Content */
+.card { background: var(--card-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 24px; padding: 40px; margin-bottom: 30px; }
+.payment-mandate { background: rgba(239, 68, 68, 0.1); border: 2px solid #ef4444; color: #ef4444; padding: 20px; border-radius: 16px; text-align: center; font-weight: 800; margin: 30px 0; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.step-num { width: 40px; height: 40px; background: var(--brand-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 15px; }
+.footer { padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}

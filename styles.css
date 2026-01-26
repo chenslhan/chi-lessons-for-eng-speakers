@@ -6,6 +6,7 @@
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --brand-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --cta-gradient: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%); /* NEW HIGH VISIBILITY COLOR */
   --accent-green: #10b981;
   --warning-red: #ef4444;
 }
@@ -37,9 +38,24 @@ h1 { font-size: 48px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; }
 .hero-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; }
 .hero-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 
+/* --- High Visibility CTA Button Style --- */
+.btn-call-to-action {
+  background: var(--cta-gradient) !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-call-to-action:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 40px rgba(255, 69, 0, 0.6);
+}
+
 /* --- Work & Mandate --- */
 .payment-mandate { background: rgba(239, 68, 68, 0.1); border: 2px solid var(--warning-red); color: var(--warning-red); padding: 20px; border-radius: 16px; text-align: center; font-weight: 800; margin: 30px 0; font-size: 14px; }
-.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
 .step-num { width: 40px; height: 40px; background: var(--brand-gradient); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 15px; }
 
 /* --- Methodology & Roadmap --- */
@@ -69,7 +85,7 @@ h1 { font-size: 48px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; }
 .qr-item span { color: #333; font-size: 9px; font-weight: 800; display: block; margin-bottom: 5px; }
 
 /* --- Buttons --- */
-.btn { display: inline-block; padding: 14px 20px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; margin-bottom: 8px; }
+.btn { display: inline-block; padding: 14px 20px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; cursor: pointer; margin-bottom: 8px; text-align: center; }
 .btn-primary { background: var(--brand-gradient); color: white; }
 .btn-secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-glass); }
 .btn-student-booking { background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%); color: white; box-shadow: 0 10px 15px rgba(236, 72, 153, 0.2); }

@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Payment & Bundles - Han's Chinese</title>
+  <title>Pricing & Bundles - Han's Chinese</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-badge"></div>
-      <span>Han's Chinese</span>
-    </a>
+    <a class="brand" href="index.html"><div class="brand-badge"></div><span>Han's Chinese</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="payment.html">Pricing & Bundles</a>
+      <a href="availability.html">Availability</a>
       <a href="contact.html">Contact Me</a>
     </div>
   </div>
@@ -24,92 +21,33 @@
 
 <section class="section">
   <div class="container">
-    <h1 style="text-align: center; margin-bottom: 10px;">Payment Information</h1>
-    <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Select your lesson or bundle. Scan a QR code or click the buttons below. All prices in SGD (Singapore Dollars).<br><strong>(Click any QR code to view it full screen)</strong></p>
-    
-    <div class="payment-tabs">
-      <button class="tab-btn active" onclick="showTab('bundles')">Lesson Bundles (Best Value)</button>
-      <button class="tab-btn" onclick="showTab('single')">Single Lessons</button>
-    </div>
-
-    <div id="bundles" class="tab-content active">
+    <div class="card">
+      <h1>Pricing & Bundles</h1>
       <div class="payment-grid">
-        <div class="card payment-card featured">
-          <div class="best-value">POPULAR</div>
-          <h3>Bundle A - 5 Lessons</h3>
-          <div class="price-tag">SGD 245</div>
-          <div class="qr-wrapper">
-            <div class="qr-item"><span>Alipay</span><a href="alipay-245.jpeg" target="_blank"><img src="alipay-245.jpeg" alt="Alipay"></a></div>
-            <div class="qr-item"><span>PayPal</span><a href="paypal-245.png" target="_blank"><img src="paypal-245.png" alt="PayPal"></a></div>
-            <div class="qr-item"><span>Wise</span><a href="wise-245.png" target="_blank"><img src="wise-245.png" alt="Wise"></a></div>
-          </div>
-          <a class="btn btn-wise btn-full" href="https://wise.com/pay/r/6RYao4mZ7sjPe_c" target="_blank">Pay via Wise</a>
-          <a class="btn btn-paypal btn-full" href="#" target="_blank">Pay via PayPal</a>
-        </div>
-
         <div class="card payment-card">
-          <h3>Bundle B - 10 Lessons</h3>
-          <div class="price-tag">SGD 490</div>
-          <div class="qr-wrapper">
-            <div class="qr-item"><span>Alipay</span><a href="alipay-490.jpeg" target="_blank"><img src="alipay-490.jpeg" alt="Alipay"></a></div>
-            <div class="qr-item"><span>PayPal</span><a href="paypal-490.png" target="_blank"><img src="paypal-490.png" alt="PayPal"></a></div>
-            <div class="qr-item"><span>Wise</span><a href="wise-490.png" target="_blank"><img src="wise-490.png" alt="Wise"></a></div>
-          </div>
-          <a class="btn btn-wise btn-full" href="https://wise.com/pay/r/EZ3w4qCN5wNOGI8" target="_blank">Pay via Wise</a>
-          <a class="btn btn-paypal btn-full" href="#" target="_blank">Pay via PayPal</a>
-        </div>
-
-        <div class="card payment-card">
-          <h3>Bundle C - 20 Lessons</h3>
-          <div class="price-tag">SGD 970</div>
-          <div class="qr-wrapper">
-            <div class="qr-item"><span>Alipay</span><a href="alipay-970.jpeg" target="_blank"><img src="alipay-970.jpeg" alt="Alipay"></a></div>
-            <div class="qr-item"><span>PayPal</span><a href="paypal-970.png" target="_blank"><img src="paypal-970.png" alt="PayPal"></a></div>
-            <div class="qr-item"><span>Wise</span><a href="wise-970.png" target="_blank"><img src="wise-970.png" alt="Wise"></a></div>
-          </div>
-          <a class="btn btn-wise btn-full" href="https://wise.com/pay/r/n9dwo_gdMvyRZO0" target="_blank">Pay via Wise</a>
-          <a class="btn btn-paypal btn-full" href="#" target="_blank">Pay via PayPal</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="single" class="tab-content">
-      <div class="payment-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); justify-content: center;">
-        <div class="card payment-card">
-          <h3>50 Minute Full Lesson</h3>
-          <div class="price-tag">SGD 50</div>
-          <div class="qr-wrapper">
-            <div class="qr-item"><span>Alipay</span><a href="alipay-50.jpeg" target="_blank"><img src="alipay-50.jpeg" alt="Alipay"></a></div>
-            <div class="qr-item"><span>PayPal</span><a href="paypal-50.png" target="_blank"><img src="paypal-50.png" alt="PayPal"></a></div>
-            <div class="qr-item"><span>Wise</span><a href="wise-50.png" target="_blank"><img src="wise-50.png" alt="Wise"></a></div>
-          </div>
-          <a class="btn btn-paypal btn-full" href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank">Pay via PayPal</a>
-          <a class="btn btn-wise btn-full" href="#" target="_blank">Pay via Wise</a>
-        </div>
-
-        <div class="card payment-card">
-          <h3>30 Minute Trial</h3>
+          <h2>30 Minute Trial</h2>
           <div class="price-tag">SGD 20</div>
-          <div class="qr-wrapper">
-            <div class="qr-item"><span>Alipay</span><a href="alipay-20.jpeg" target="_blank"><img src="alipay-20.jpeg" alt="Alipay"></a></div>
-            <div class="qr-item"><span>PayPal</span><a href="paypal-20.png" target="_blank"><img src="paypal-20.png" alt="PayPal"></a></div>
-            <div class="qr-item"><span>Wise</span><a href="wise-20.png" target="_blank"><img src="wise-20.png" alt="Wise"></a></div>
-          </div>
-          <a class="btn btn-paypal btn-full" href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank">Pay via PayPal</a>
-          <a class="btn btn-wise btn-full" href="#" target="_blank">Pay via Wise</a>
+          <div class="qr-container"><img src="trial-qr.png" class="qr-image"></div>
+          <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" class="btn btn-primary btn-full">Click to Pay in PayPal</a>
+          <a href="#" class="btn btn-secondary btn-full">Alipay Payment</a>
+        </div>
+        <div class="card payment-card">
+          <h2>50 Minute Full</h2>
+          <div class="price-tag">SGD 50</div>
+          <div class="qr-container"><img src="full-lesson-qr.png" class="qr-image"></div>
+          <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" class="btn btn-primary btn-full">Click to Pay in PayPal</a>
+          <a href="#" class="btn btn-secondary btn-full">Alipay Payment</a>
+        </div>
+        <div class="card payment-card">
+          <h2>Bundle A - 5 Lessons</h2>
+          <div class="price-tag">SGD 245</div>
+          <div class="qr-container"><img src="bundle-a-qr.png" class="qr-image"></div>
+          <a href="https://wise.com/pay/r/6RYao4mZ7sjPe_c" class="btn btn-primary btn-full">Click to Pay in Wise</a>
+          <a href="#" class="btn btn-secondary btn-full">Alipay Payment</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  function showTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
-  }
-</script>
 </body>
 </html>

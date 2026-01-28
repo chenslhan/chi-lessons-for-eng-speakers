@@ -40,14 +40,15 @@
 
         /* Hero Section */
         .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; margin-bottom: 60px; }
-        .hero-content h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content p { color: var(--text-dim); margin-bottom: 30px; }
+        .hero-sub { color: var(--accent-purple); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; display: block; margin-bottom: 10px; }
+        .hero-content h1 { font-size: 3.8rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px; letter-spacing: -1.5px; }
+        .hero-content p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 30px; }
         .video-box { background: var(--card-bg); padding: 10px; border-radius: 20px; border: 1px solid var(--border); }
         .video-box iframe { width: 100%; aspect-ratio: 16/9; border-radius: 12px; border: none; }
 
         /* Buttons */
         .btn-stack { display: flex; flex-direction: column; gap: 12px; max-width: 380px; }
-        .btn { padding: 15px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; }
+        .btn { padding: 16px; border-radius: 10px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; }
         .btn-purple { background: var(--accent-purple); }
         .btn-orange { background: var(--accent-orange); }
         .btn-green { background: var(--accent-green); }
@@ -57,9 +58,9 @@
         /* Mandatory Warning Box */
         .mandatory-box { 
             border: 2px solid #ef4444; background: rgba(239, 68, 68, 0.1); 
-            color: #ef4444; padding: 15px; border-radius: 10px; 
+            color: #ef4444; padding: 20px; border-radius: 12px; 
             text-align: center; font-weight: 800; margin: 30px 0; 
-            text-transform: uppercase; letter-spacing: 0.5px;
+            text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4;
         }
 
         /* Steps */
@@ -79,8 +80,7 @@
         .t-btn { padding: 10px 25px; border-radius: 50px; border: 1px solid var(--accent-purple); background: transparent; color: white; cursor: pointer; font-weight: bold; }
         .t-btn.active { background: var(--accent-purple); }
         .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .p-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid var(--border); text-align: center; transition: 0.3s; }
-        .p-card:hover { border-color: var(--accent-purple); }
+        .p-card { background: var(--card-bg); padding: 30px; border-radius: 24px; border: 1px solid var(--border); text-align: center; }
         .qr-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
         .qr-box { background: white; padding: 5px; border-radius: 8px; cursor: pointer; }
         .qr-box img { width: 100%; display: block; }
@@ -89,7 +89,7 @@
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
         #modal img { max-width: 90%; max-height: 90%; border-radius: 8px; }
 
-        @media (max-width: 900px) { .hero, .about-grid, .steps-grid { grid-template-columns: 1fr; } .btn-stack { margin: 0 auto; } }
+        @media (max-width: 900px) { .hero, .about-grid, .steps-grid { grid-template-columns: 1fr; } .hero-content h1 { font-size: 2.8rem; } }
     </style>
 </head>
 <body>
@@ -108,8 +108,9 @@
     <section id="home" class="active">
         <div class="hero">
             <div class="hero-content">
-                <h1 id="han-chinese-top">Professional Chinese Coaching</h1>
-                <p>High-quality 1-on-1 instruction tailored to your needs. Start with a 30-minute trial for SGD 20, or book full 50-minute lessons for SGD 50.</p>
+                <span class="hero-sub">Professional Online Chinese Coaching</span>
+                <h1>Master Chinese with 1-on-1 Lessons.</h1>
+                <p>High-quality instruction tailored to your pace. Start with a 30-minute trial for SGD 20, or book full 50-minute lessons for SGD 50.</p>
                 <div class="btn-stack">
                     <button class="btn btn-purple" onclick="navTo('pricing')">View Pricing & Bundles</button>
                     <a href="https://cal.com/sihan/50min" target="_blank" class="btn btn-orange">Book 50-Min Lesson</a>
@@ -166,7 +167,7 @@
         </div>
         <div id="ps" class="p-grid">
             <div class="p-card"><h3>30-Min Trial ($20)</h3><div class="qr-row"><div class="qr-box" onclick="pop('paypal-20.png')"><img src="paypal-20.png"></div><div class="qr-box" onclick="pop('wise-20.png')"><img src="wise-20.png"></div><div class="qr-box" onclick="pop('alipay-20.jpeg')"><img src="alipay-20.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
-            <div class="p-card"><h3>50-Min Lesson ($50)</h3><div class="qr-row"><div class="qr-box" onclick="pop('paypal-50.png')"><img src="paypal-50.png"></div><div class="qr-box" onclick="pop('wise-50.png')"><img src="wise-50.png"></div><div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
+            <div class="p-card"><h3>50-Min Lesson ($50)</h3><div class="qr-row"><div class="qr-box" onclick="pop('paypal-50.png')"><img src="paypal-50.png"></div><div class="qr-row" onclick="pop('wise-50.png')"><img src="wise-50.png"></div><div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
         </div>
         <div id="pb" class="p-grid" style="display:none;">
             <div class="p-card"><h3>5 Lessons ($245)</h3><div class="qr-row"><div class="qr-box" onclick="pop('paypal-245.png')"><img src="paypal-245.png"></div><div class="qr-box" onclick="pop('wise-245.png')"><img src="wise-245.png"></div><div class="qr-box" onclick="pop('alipay-245.jpeg')"><img src="alipay-245.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>

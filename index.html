@@ -50,23 +50,21 @@
         .hero-content h1 { font-size: 3.8rem; line-height: 1.05; font-weight: 800; margin-bottom: 25px; letter-spacing: -2px; }
         .hero-content p { color: var(--text-dim); font-size: 1.15rem; margin-bottom: 35px; }
         
-        /* Video Box */
         .video-box { background: var(--card-bg); padding: 10px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         .video-box iframe { width: 100%; aspect-ratio: 16/9; border-radius: 16px; border: none; }
 
-        /* Catchy Mode Highlight */
         .mode-highlight {
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
             border: 1px solid var(--accent-purple);
             padding: 30px; border-radius: 24px; text-align: center; margin-bottom: 60px;
         }
-        .mode-highlight h2 { font-size: 1.8rem; margin-bottom: 15px; }
         .mode-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
         .mode-tag { background: rgba(255,255,255,0.1); padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--border); }
 
         .btn-stack { display: flex; flex-direction: column; gap: 15px; max-width: 420px; }
         .btn { padding: 18px; border-radius: 14px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; }
-        .btn-purple { background: var(--accent-purple); }
+        .btn-purple { background: var(--accent-purple); margin-bottom: 8px; }
+        .btn-wise { background: #00b67a; } /* Wise Green */
         .btn-orange { background: var(--accent-orange); }
         .btn-green { background: var(--accent-green); }
         .btn-pink { background: var(--accent-pink); }
@@ -93,7 +91,7 @@
         .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 30px; }
         .p-card { background: var(--card-bg); padding: 45px; border-radius: 32px; border: 1px solid var(--border); text-align: center; }
         .p-card h2 { font-size: 3.5rem; margin-bottom: 30px; font-weight: 800; }
-        .qr-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0; }
+        .qr-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0; }
         .qr-box { background: white; padding: 8px; border-radius: 12px; cursor: pointer; }
         .qr-box img { width: 100%; display: block; border-radius: 6px; }
 
@@ -182,8 +180,7 @@
     <section id="about">
         <div style="display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 50px; align-items: start; background: var(--card-bg); padding: 50px; border-radius: 32px; border: 1px solid var(--border);">
             <div style="text-align: center;">
-                <img src="image_e99f5e.jpg" style="width: 100%; border-radius: 20px; border: 4px solid var(--accent-purple);" alt="Han's Profile" onerror="this.src='image_e99f5e.JPG'">
-                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">(Photo of Han)</p>
+                <img src="placeholder.jpg" style="width: 100%; border-radius: 20px; border: 4px solid var(--accent-purple);" alt="Han's Profile">
             </div>
             <div>
                 <h2 style="font-size: 3rem; margin-bottom: 20px;">Hello, I'm Han</h2>
@@ -206,14 +203,61 @@
             <button id="ts" class="t-btn active" onclick="setPr('s')">SINGLE LESSONS</button>
             <button id="tb" class="t-btn" onclick="setPr('b')">LESSON BUNDLES</button>
         </div>
+        
         <div id="ps" class="p-grid">
-            <div class="p-card"><h3>30-Min Trial</h3><h2>$20</h2><div class="qr-row"><div class="qr-box" onclick="pop('paypal-20.png')"><img src="paypal-20.png"></div><div class="qr-box" onclick="pop('wise-20.png')"><img src="wise-20.png"></div><div class="qr-box" onclick="pop('alipay-20.jpeg')"><img src="alipay-20.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
-            <div class="p-card"><h3>50-Min Lesson</h3><h2>$50</h2><div class="qr-row"><div class="qr-box" onclick="pop('paypal-50.png')"><img src="paypal-50.png"></div><div class="qr-box" onclick="pop('wise-50.png')"><img src="wise-50.png"></div><div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
+            <div class="p-card">
+                <h3>30-Min Trial</h3><h2>$20</h2>
+                <div class="qr-row">
+                    <div class="qr-box" onclick="pop('paypal-20.png')"><img src="paypal-20.png"></div>
+                    <div class="qr-box" onclick="pop('wise-20.png')"><img src="wise-20.png"></div>
+                    <div class="qr-box" onclick="pop('alipay-20.jpeg')"><img src="alipay-20.jpeg"></div>
+                </div>
+                <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+            </div>
+            <div class="p-card">
+                <h3>50-Min Lesson</h3><h2>$50</h2>
+                <div class="qr-row">
+                    <div class="qr-box" onclick="pop('paypal-50.png')"><img src="paypal-50.png"></div>
+                    <div class="qr-box" onclick="pop('wise-50.png')"><img src="wise-50.png"></div>
+                    <div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div>
+                </div>
+                <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+            </div>
         </div>
+
         <div id="pb" class="p-grid" style="display:none;">
-            <div class="p-card"><h3>5 Lessons</h3><h2>$245</h2><div class="qr-row"><div class="qr-box" onclick="pop('paypal-245.png')"><img src="paypal-245.png"></div><div class="qr-box" onclick="pop('wise-245.png')"><img src="wise-245.png"></div><div class="qr-box" onclick="pop('alipay-245.jpeg')"><img src="alipay-245.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
-            <div class="p-card"><h3>10 Lessons</h3><h2>$490</h2><div class="qr-row"><div class="qr-box" onclick="pop('paypal-490.png')"><img src="paypal-490.png"></div><div class="qr-box" onclick="pop('wise-490.png')"><img src="wise-490.png"></div><div class="qr-box" onclick="pop('alipay-490.jpeg')"><img src="alipay-490.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
-            <div class="p-card"><h3>20 Lessons</h3><h2>$970</h2><div class="qr-row"><div class="qr-box" onclick="pop('paypal-970.png')"><img src="paypal-970.png"></div><div class="qr-box" onclick="pop('wise-970.png')"><img src="wise-970.png"></div><div class="qr-box" onclick="pop('alipay-970.jpeg')"><img src="alipay-970.jpeg"></div></div><a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay via PayPal</a></div>
+            <div class="p-card">
+                <h3>5 Lessons</h3><h2>$245</h2>
+                <div class="qr-row">
+                    <div class="qr-box" onclick="pop('paypal-245.png')"><img src="paypal-245.png"></div>
+                    <div class="qr-box" onclick="pop('wise-245.png')"><img src="wise-245.png"></div>
+                    <div class="qr-box" onclick="pop('alipay-245.jpeg')"><img src="alipay-245.jpeg"></div>
+                </div>
+                <a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+            </div>
+            <div class="p-card">
+                <h3>10 Lessons</h3><h2>$490</h2>
+                <div class="qr-row">
+                    <div class="qr-box" onclick="pop('paypal-490.png')"><img src="paypal-490.png"></div>
+                    <div class="qr-box" onclick="pop('wise-490.png')"><img src="wise-490.png"></div>
+                    <div class="qr-box" onclick="pop('alipay-490.jpeg')"><img src="alipay-490.jpeg"></div>
+                </div>
+                <a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+            </div>
+            <div class="p-card">
+                <h3>20 Lessons</h3><h2>$970</h2>
+                <div class="qr-row">
+                    <div class="qr-box" onclick="pop('paypal-970.png')"><img src="paypal-970.png"></div>
+                    <div class="qr-box" onclick="pop('wise-970.png')"><img src="wise-970.png"></div>
+                    <div class="qr-box" onclick="pop('alipay-970.jpeg')"><img src="alipay-970.jpeg"></div>
+                </div>
+                <a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay via PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+            </div>
         </div>
     </section>
 

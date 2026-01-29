@@ -80,7 +80,6 @@
             text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px;
         }
 
-        /* 4-Column Steps Grid */
         .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; align-items: stretch; }
         .step-card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; }
         .step-header { font-weight: 800; color: var(--accent-purple); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; }
@@ -88,7 +87,8 @@
         .note-red { color: #f87171; font-weight: 700; font-size: 0.85rem; display: block; margin: 10px 0; }
 
         .roadmap-container { text-align:center; background: var(--card-bg); padding: 50px; border-radius: 36px; border: 1px solid var(--border); }
-        .roadmap-img { width:100%; max-width:900px; margin-top:30px; border-radius:18px; cursor:zoom-in; }
+        /* FIXED FILENAME FOR ROADMAP HERE */
+        .roadmap-img { width:100%; max-width:900px; margin-top:30px; border-radius:18px; cursor:zoom-in; border: 1px solid var(--border); }
 
         .toggle-wrap { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
         .t-btn { padding: 14px 35px; border-radius: 100px; border: 2px solid var(--accent-purple); background: transparent; color: white; cursor: pointer; font-weight: 800; }
@@ -181,7 +181,7 @@
 
         <div class="roadmap-container">
             <h2>Curriculum Roadmap</h2>
-            <img src="Chi Lesson Roadmap for Eng Learners.jpg" class="roadmap-img" onclick="pop(this.src)" alt="Roadmap">
+            <img src="Chi Lesson Roadmap for Eng Learners.png" class="roadmap-img" onclick="pop(this.src)" alt="Curriculum Roadmap">
         </div>
     </section>
 

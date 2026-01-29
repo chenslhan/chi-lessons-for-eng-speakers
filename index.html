@@ -12,6 +12,7 @@
             --accent-purple: #8b5cf6;
             --accent-orange: #f97316;
             --accent-green: #10b981;
+            --accent-blue: #3b82f6;
             --accent-pink: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
@@ -27,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .logo, .btn, .t-btn, .sub-head, .flex-item span, .step-header, .mode-tag { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, .logo, .btn, .t-btn, .sub-head, .step-header, .mode-tag { font-family: 'Montserrat', sans-serif; }
 
         nav { 
             display: flex; justify-content: space-between; align-items: center; 
@@ -41,34 +42,36 @@
         .nav-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-weight: 600; font-size: 0.85rem; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active-link { color: var(--text-main); border-bottom: 2px solid var(--accent-purple); }
 
-        section { padding: 60px 8%; max-width: 1300px; margin: 0 auto; display: none; }
+        section { padding: 60px 8%; max-width: 1400px; margin: 0 auto; display: none; }
         section.active { display: block; animation: fadeIn 0.7s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; margin-bottom: 40px; }
         .sub-head { color: var(--accent-purple); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; display: block; margin-bottom: 12px; }
-        .hero-content h1 { font-size: 3.8rem; line-height: 1.05; font-weight: 800; margin-bottom: 25px; letter-spacing: -2px; }
-        .hero-content p { color: var(--text-dim); font-size: 1.15rem; margin-bottom: 35px; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.05; font-weight: 800; margin-bottom: 25px; letter-spacing: -2px; }
+        .hero-content p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 30px; }
         
         .video-box { background: var(--card-bg); padding: 10px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         .video-box iframe { width: 100%; aspect-ratio: 16/9; border-radius: 16px; border: none; }
 
         .mode-highlight {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
-            border: 1px solid var(--accent-purple);
-            padding: 30px; border-radius: 24px; text-align: center; margin-bottom: 60px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 1px solid var(--border);
+            padding: 25px; border-radius: 24px; text-align: center; margin-bottom: 50px;
         }
-        .mode-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 15px; }
-        .mode-tag { background: rgba(255,255,255,0.1); padding: 8px 18px; border-radius: 50px; font-size: 0.9rem; font-weight: 700; border: 1px solid var(--border); }
+        .mode-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+        .mode-tag { background: rgba(255,255,255,0.05); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--border); }
 
-        .btn-stack { display: flex; flex-direction: column; gap: 15px; max-width: 420px; }
-        .btn { padding: 18px; border-radius: 14px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; }
-        .btn-purple { background: var(--accent-purple); margin-bottom: 8px; }
-        .btn-wise { background: #00b67a; } /* Wise Green */
+        .btn-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 550px; }
+        .btn { padding: 16px; border-radius: 12px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; font-size: 0.9rem; }
+        .btn-purple { background: var(--accent-purple); }
         .btn-orange { background: var(--accent-orange); }
         .btn-green { background: var(--accent-green); }
+        .btn-blue { background: var(--accent-blue); }
         .btn-pink { background: var(--accent-pink); }
-        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+        .btn-wise { background: #00b67a; }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-full { grid-column: span 2; }
 
         .mandatory-box { 
             border: 2px solid #ef4444; background: rgba(239, 68, 68, 0.05); 
@@ -77,10 +80,12 @@
             text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1px;
         }
 
-        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 60px; }
-        .step-card { background: var(--card-bg); padding: 35px; border-radius: 28px; border: 1px solid var(--border); }
-        .step-header { font-weight: 800; color: var(--accent-purple); font-size: 1.3rem; margin-bottom: 15px; }
-        .note-red { color: #f87171; font-weight: 700; display: block; margin: 15px 0; }
+        /* 4-Column Steps Grid */
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; align-items: stretch; }
+        .step-card { background: var(--card-bg); padding: 25px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; }
+        .step-header { font-weight: 800; color: var(--accent-purple); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; }
+        .step-card p { font-size: 0.9rem; margin-bottom: 10px; }
+        .note-red { color: #f87171; font-weight: 700; font-size: 0.85rem; display: block; margin: 10px 0; }
 
         .roadmap-container { text-align:center; background: var(--card-bg); padding: 50px; border-radius: 36px; border: 1px solid var(--border); }
         .roadmap-img { width:100%; max-width:900px; margin-top:30px; border-radius:18px; cursor:zoom-in; }
@@ -89,16 +94,17 @@
         .t-btn { padding: 14px 35px; border-radius: 100px; border: 2px solid var(--accent-purple); background: transparent; color: white; cursor: pointer; font-weight: 800; }
         .t-btn.active { background: var(--accent-purple); }
         .p-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 30px; }
-        .p-card { background: var(--card-bg); padding: 45px; border-radius: 32px; border: 1px solid var(--border); text-align: center; }
-        .p-card h2 { font-size: 3.5rem; margin-bottom: 30px; font-weight: 800; }
+        .p-card { background: var(--card-bg); padding: 40px; border-radius: 32px; border: 1px solid var(--border); text-align: center; }
+        .p-card h2 { font-size: 3rem; margin-bottom: 25px; font-weight: 800; }
         .qr-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 25px 0; }
-        .qr-box { background: white; padding: 8px; border-radius: 12px; cursor: pointer; }
-        .qr-box img { width: 100%; display: block; border-radius: 6px; }
+        .qr-box { background: white; padding: 6px; border-radius: 10px; cursor: pointer; }
+        .qr-box img { width: 100%; display: block; border-radius: 4px; }
 
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
         #modal img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 
-        @media (max-width: 1024px) { .hero, .steps-grid { grid-template-columns: 1fr; text-align: center; } .btn-stack { margin: 0 auto; } .nav-links { display: none; } }
+        @media (max-width: 1200px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .hero, .steps-grid { grid-template-columns: 1fr; } .btn-stack { grid-template-columns: 1fr; } .btn-full { grid-column: span 1; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
@@ -119,12 +125,14 @@
             <div class="hero-content">
                 <span class="sub-head">Professional Online Chinese Coaching</span>
                 <h1>Master Chinese with 1-on-1 Lessons.</h1>
-                <p>High-quality instruction tailored to your unique pace and convenience. Start with a 30-minute trial for SGD 20, or book full 50-minute lessons for SGD 50.</p>
+                <p>Personalized instruction for your unique journey. Start with a trial or dive into a full lesson bundle.</p>
+                
                 <div class="btn-stack">
                     <button class="btn btn-purple" onclick="navTo('pricing')">View Pricing & Bundles</button>
+                    <a href="https://cal.com/sihan/30min" target="_blank" class="btn btn-blue">Book 30-Min Trial</a>
                     <a href="https://cal.com/sihan/50min" target="_blank" class="btn btn-orange">Book 50-Min Lesson</a>
                     <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAALq-qMVURThYUDlNU1I5VjZKT1JOODc4MEI1T0dHWi4u" target="_blank" class="btn btn-green">15-Min Level Calibration</a>
-                    <a href="https://cal.com/sihan/50min" target="_blank" class="btn btn-pink">Current students click here to book</a>
+                    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAALq-qMVUQzZQS0lMUE5QNEI5SEVDTlo2U1RQUkY4Ny4u" target="_blank" class="btn btn-pink btn-full">Lesson Registration Form</a>
                 </div>
             </div>
             <div class="video-box">
@@ -133,19 +141,14 @@
         </div>
 
         <div class="mode-highlight">
-            <h2>Your Lessons, Your Choice.</h2>
-            <p>I provide expert coaching <strong>at any time</strong>, through <strong>any mode</strong>, at your total convenience.</p>
+            <p>I provide expert coaching <strong>at any time</strong>, through <strong>any mode</strong>, at your convenience.</p>
             <div class="mode-tags">
-                <div class="mode-tag">Zoom</div>
-                <div class="mode-tag">WhatsApp</div>
-                <div class="mode-tag">WeChat</div>
-                <div class="mode-tag">LINE</div>
-                <div class="mode-tag">MS Teams</div>
-                <div class="mode-tag">Google Meet</div>
+                <div class="mode-tag">Zoom</div><div class="mode-tag">WhatsApp</div><div class="mode-tag">WeChat</div>
+                <div class="mode-tag">LINE</div><div class="mode-tag">MS Teams</div><div class="mode-tag">Google Meet</div>
             </div>
         </div>
 
-        <h2 style="text-align:center; font-size: 2.2rem;">How My Lessons Work</h2>
+        <h2 style="text-align:center; font-size: 2.2rem; margin-bottom: 10px;">How My Lessons Work</h2>
         
         <div class="mandatory-box">
             MANDATORY: Payments are required before any bookings will be registered.
@@ -159,21 +162,26 @@
             <div class="step-card">
                 <div class="step-header">2. Scheduling</div>
                 <p><strong>Beginners Start Right Away</strong></p>
-                <p>If you're new to Chinese, you can begin learning from scratch. After payment, you'll be able to book your lessons immediately via the Book 50-min lesson button above.</p>
+                <p>If you're new to Chinese, you can begin learning from scratch. After payment, please register your details via the Lesson Registration Form button.</p>
+                <p>After registering, you'll be able to book your lessons immediately via the Book 50-min lesson button above. See you in class !!</p>
             </div>
             <div class="step-card">
                 <div class="step-header">3. Calibration</div>
                 <p><strong>Learners with Prior Chinese Background will need Quick Level calibration.</strong></p>
-                <p>If you’ve studied Chinese before, after payment I invite you to do a short 15–minute level calibration so we can start at the appropriate pace and content level. This step helps avoid situations where lessons feel too easy or too difficult for you. You can find the level calibration button above.</p>
+                <p>If you’ve studied Chinese before, after payment I invite you to do a short 15–minute level calibration so we can start at the appropriate pace and content level.</p>
                 <span class="note-red">*NOTE*: You wont be able to commence studies for levels higher than low beginner before completing the level calibration.</span>
+            </div>
+            <div class="step-card">
+                <div class="step-header">4. After Calibration</div>
                 <p><strong>Then Book Your Lessons</strong></p>
-                <p>After the level calibration is completed, you may book your lessons via the Book 50-min lesson button above.</p>
+                <p>After the level calibration is completed, please register your details via the Lesson Registration Form button.</p>
+                <p>After registering, you'll be able to book your lessons immediately via the Book 50-min lesson button above. See you in class !!</p>
             </div>
         </div>
 
         <div class="roadmap-container">
             <h2>Curriculum Roadmap</h2>
-            <img src="Chi Lesson Roadmap for Eng Learners.png" class="roadmap-img" onclick="pop(this.src)" alt="Roadmap">
+            <img src="Chi Lesson Roadmap for Eng Learners.jpg" class="roadmap-img" onclick="pop(this.src)" alt="Roadmap">
         </div>
     </section>
 
@@ -213,7 +221,7 @@
                     <div class="qr-box" onclick="pop('alipay-20.jpeg')"><img src="alipay-20.jpeg"></div>
                 </div>
                 <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>50-Min Lesson</h3><h2>$50</h2>
@@ -223,7 +231,7 @@
                     <div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div>
                 </div>
                 <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
         </div>
 
@@ -236,7 +244,7 @@
                     <div class="qr-box" onclick="pop('alipay-245.jpeg')"><img src="alipay-245.jpeg"></div>
                 </div>
                 <a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>10 Lessons</h3><h2>$490</h2>
@@ -246,7 +254,7 @@
                     <div class="qr-box" onclick="pop('alipay-490.jpeg')"><img src="alipay-490.jpeg"></div>
                 </div>
                 <a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>20 Lessons</h3><h2>$970</h2>
@@ -256,7 +264,7 @@
                     <div class="qr-box" onclick="pop('alipay-970.jpeg')"><img src="alipay-970.jpeg"></div>
                 </div>
                 <a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise">Pay via Wise</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
         </div>
     </section>

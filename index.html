@@ -205,6 +205,7 @@
             <button id="ts" class="t-btn active" onclick="setPr('s')">SINGLE LESSONS</button>
             <button id="tb" class="t-btn" onclick="setPr('b')">LESSON BUNDLES</button>
         </div>
+        
         <div id="ps" class="p-grid">
             <div class="p-card">
                 <h3>30-Min Trial</h3><h2>$20</h2>
@@ -215,7 +216,7 @@
                 </div>
                 <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
                 <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <a href="https://wise.com/pay/r/D12miclMTedlvms" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>50-Min Lesson</h3><h2>$50</h2>
@@ -226,9 +227,10 @@
                 </div>
                 <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
                 <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <a href="https://wise.com/pay/r/OXLJjiJZqXjg_lk" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
         </div>
+
         <div id="pb" class="p-grid" style="display:none;">
             <div class="p-card">
                 <h3>5 Lessons</h3><h2>$245</h2>
@@ -239,7 +241,7 @@
                 </div>
                 <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
                 <a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <a href="https://wise.com/pay/r/6RYao4mZ7sjPe_c" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>10 Lessons</h3><h2>$490</h2>
@@ -250,7 +252,7 @@
                 </div>
                 <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
                 <a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <a href="https://wise.com/pay/r/EZ3w4qCN5wNOGI8" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
             <div class="p-card">
                 <h3>20 Lessons</h3><h2>$970</h2>
@@ -261,7 +263,7 @@
                 </div>
                 <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
                 <a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <a href="https://wise.com/pay/r/n9dwo_gdMvyRZO0" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
             </div>
         </div>
     </section>
@@ -283,7 +285,6 @@
     <div id="modal" onclick="this.style.display='none'"><img id="mImg" src=""></div>
 
     <script>
-        // STABLE ROUTING - Runs before page paint to stop flickering
         function navTo(id) {
             const sections = ['home', 'about', 'pricing', 'contact'];
             if (!sections.includes(id)) id = 'home';
@@ -307,7 +308,6 @@
             window.scrollTo(0,0);
         }
 
-        // Apply route immediately on load
         const currentHash = window.location.hash.replace('#', '');
         navTo(currentHash || 'home');
 

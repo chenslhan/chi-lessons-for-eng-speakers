@@ -42,11 +42,12 @@
         .nav-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-weight: 600; font-size: 0.85rem; cursor: pointer; }
         .nav-links a:hover, .nav-links a.active-link { color: var(--text-main); border-bottom: 2px solid var(--accent-purple); }
 
+        /* SECTION CONTROL - No flicker logic */
         section { padding: 60px 8%; max-width: 1400px; margin: 0 auto; display: none; }
-        section.active { display: block; animation: fadeIn 0.7s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        section.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* HOME STYLES */
+        /* HERO & CONTENT */
         .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; margin-bottom: 40px; }
         .sub-head { color: var(--accent-purple); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; display: block; margin-bottom: 12px; }
         .hero-content h1 { font-size: 3.5rem; line-height: 1.05; font-weight: 800; margin-bottom: 25px; letter-spacing: -2px; }
@@ -57,7 +58,7 @@
         .mode-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
         .mode-tag { background: rgba(255,255,255,0.05); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--border); }
 
-        /* BUTTONS */
+        /* BUTTON STYLES */
         .btn-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 550px; }
         .btn { padding: 16px; border-radius: 12px; border: none; font-weight: 800; cursor: pointer; transition: 0.3s; text-align: center; text-decoration: none; color: white; display: block; font-size: 0.9rem; }
         .btn-purple { background: var(--accent-purple); }
@@ -79,7 +80,7 @@
         .roadmap-img { width:100%; max-width:900px; margin-top:20px; border-radius:18px; cursor:zoom-in; border: 1px solid var(--border); }
         .click-hint { color: var(--text-dim); font-size: 0.85rem; font-style: italic; margin-top: 10px; display: block; }
 
-        /* PRICING */
+        /* PRICING STYLES */
         .currency-helper { background: rgba(59, 130, 246, 0.1); border: 1px dashed var(--accent-blue); padding: 15px; border-radius: 12px; margin-bottom: 30px; text-align: center; font-size: 0.9rem; }
         .currency-helper a { color: var(--accent-blue); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent-blue); }
         .toggle-wrap { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
@@ -91,26 +92,22 @@
         .p-card h2 { font-size: 3.5rem; margin-bottom: 25px; font-weight: 800; color: var(--text-main); }
         .qr-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px 0 5px; }
         .qr-box { background: white; padding: 6px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
-        .qr-box:hover { transform: scale(1.05); }
         .qr-box img { width: 100%; display: block; border-radius: 4px; }
 
-        /* CONTACT SECTION - NEW FRIENDLY STYLE */
+        /* FRIENDLY CONTACT */
         .contact-box { background: var(--card-bg); padding: 60px; border-radius: 40px; border: 1px solid var(--border); max-width: 800px; margin: 0 auto; text-align: center; }
         .contact-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
         .contact-title { font-size: 2.8rem; margin-bottom: 15px; font-weight: 800; background: var(--accent-pink); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .contact-intro { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .contact-method { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid var(--border); display: inline-block; min-width: 300px; }
+        .contact-method { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 20px; border: 1px solid var(--border); display: inline-block; min-width: 300px; margin-top: 20px;}
         .email-label { color: var(--accent-purple); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 8px; display: block; }
-        .email-link { font-size: 1.6rem; color: var(--text-main); text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .email-link:hover { color: var(--accent-purple); }
+        .email-link { font-size: 1.6rem; color: var(--text-main); text-decoration: none; font-weight: 700; }
         .time-badge { margin-top: 20px; display: inline-block; padding: 6px 15px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-green); color: var(--accent-green); border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
 
         /* MODAL */
         #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
         #modal img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 
-        @media (max-width: 1200px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .hero, .steps-grid { grid-template-columns: 1fr; } .btn-stack { grid-template-columns: 1fr; } .btn-full { grid-column: span 1; } .nav-links { display: none; } .contact-box { padding: 40px 20px; } }
+        @media (max-width: 768px) { .hero, .steps-grid { grid-template-columns: 1fr; } .btn-stack { grid-template-columns: 1fr; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
@@ -118,7 +115,7 @@
     <nav>
         <div class="logo" onclick="navTo('home')"><div class="logo-box"></div> HAN'S CHINESE</div>
         <div class="nav-links">
-            <a id="l-home" onclick="navTo('home')" class="active-link">HOME</a>
+            <a id="l-home" onclick="navTo('home')">HOME</a>
             <a id="l-about" onclick="navTo('about')">ABOUT ME</a>
             <a id="l-pricing" onclick="navTo('pricing')">PRICING</a>
             <a href="https://cal.com/sihan/general-availability-view-only" target="_blank">AVAILABILITY</a>
@@ -126,13 +123,12 @@
         </div>
     </nav>
 
-    <section id="home" class="active">
+    <section id="home">
         <div class="hero">
             <div class="hero-content">
                 <span class="sub-head">Professional Online Chinese Coaching</span>
                 <h1>Master Chinese with 1-on-1 Lessons.</h1>
                 <p>Personalized instruction for your unique journey. Start with a trial or dive into a full lesson bundle.</p>
-                
                 <div class="btn-stack">
                     <button class="btn btn-purple" onclick="navTo('pricing')">View Pricing & Bundles</button>
                     <a href="https://cal.com/sihan/30min" target="_blank" class="btn btn-blue">Book 30-Min Trial</a>
@@ -145,80 +141,47 @@
                 <iframe src="https://www.youtube.com/embed/JhUmcAdRCO4?autoplay=1&mute=1&loop=1&playlist=JhUmcAdRCO4" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
-
         <div class="mode-highlight">
-            <p>I provide expert coaching <strong>at any time, anywhere, through any mode</strong>, at your convenience.</p>
+            <p>I provide expert coaching <strong>at any time, anywhere, through any mode</strong>.</p>
             <div class="mode-tags">
                 <div class="mode-tag">Zoom</div><div class="mode-tag">WhatsApp</div><div class="mode-tag">WeChat</div>
                 <div class="mode-tag">LINE</div><div class="mode-tag">MS Teams</div><div class="mode-tag">Google Meet</div>
             </div>
         </div>
-
-        <h2 style="text-align:center; font-size: 2.2rem; margin-bottom: 10px;">How My Lessons Work</h2>
-        
-        <div class="mandatory-box">
-            MANDATORY: Payments are required before any bookings will be registered.
-        </div>
-
+        <div class="mandatory-box">MANDATORY: Payments required before any bookings.</div>
         <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-header">1. Enrollment</div>
-                <p>Secure your spot by making a payment for a single lesson or lesson bundle via the Pricing page.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-header">2. Scheduling</div>
-                <p><strong>Beginners Start Right Away</strong></p>
-                <p>If you're new to Chinese, you can begin learning from scratch. After payment, please register your details via the Lesson Registration Form button.</p>
-                <p>After registering, you'll be able to book your lessons immediately via the Book 50-min lesson button above. See you in class !!</p>
-            </div>
-            <div class="step-card">
-                <div class="step-header">3. Calibration</div>
-                <p><strong>Prior Chinese Background?</strong></p>
-                <p>If you’ve studied Chinese before, after payment I invite you to do a short 15–minute level calibration so we can start at the right pace.</p>
-                <p style="color: #f87171; font-weight: 700; font-size: 0.85rem;">*NOTE*: Calibration is required for levels higher than beginner.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-header">4. Ready to Go</div>
-                <p><strong>Then Book Your Lessons</strong></p>
-                <p>After calibration (if needed), register your details via the Form button. Then, book your sessions and let's get started!</p>
-            </div>
+            <div class="step-card"><div class="step-header">1. Enrollment</div><p>Secure spot via Pricing page.</p></div>
+            <div class="step-card"><div class="step-header">2. Scheduling</div><p>Beginners start immediately after form registration.</p></div>
+            <div class="step-card"><div class="step-header">3. Calibration</div><p>Prior learners need a 15-min level check.</p></div>
+            <div class="step-card"><div class="step-header">4. Ready</div><p>Book 50-min sessions via the portal.</p></div>
         </div>
-
         <div class="roadmap-container">
             <h2>Curriculum Roadmap</h2>
             <span class="click-hint">🔍 Click the image to enlarge</span>
-            <img src="Chi Lesson Roadmap for Eng Learners.png" class="roadmap-img" onclick="pop(this.src)" alt="Curriculum Roadmap">
+            <img src="Chi Lesson Roadmap for Eng Learners.png" class="roadmap-img" onclick="pop(this.src)">
         </div>
     </section>
 
     <section id="about">
-        <div style="display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 50px; align-items: start; background: var(--card-bg); padding: 50px; border-radius: 32px; border: 1px solid var(--border);">
-            <div style="text-align: center;">
-                <img src="placeholder.jpg" style="width: 100%; border-radius: 20px; border: 4px solid var(--accent-purple);" alt="Han's Profile">
-            </div>
+        <div style="display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 50px; background: var(--card-bg); padding: 50px; border-radius: 32px; border: 1px solid var(--border);">
+            <div style="text-align: center;"><img src="placeholder.jpg" style="width: 100%; border-radius: 20px; border: 4px solid var(--accent-purple);"></div>
             <div>
                 <h2 style="font-size: 3rem; margin-bottom: 20px;">Hello, I'm Han</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 30px;">I am Singaporean, of Chinese ethnicity, with a bilingual background in English and Mandarin. I would be delighted to assist you in beginning and continuing your Chinese learning journey.</p>
-                <h3 style="margin-bottom: 15px; color: var(--accent-purple);">Qualifications</h3>
+                <p>Singaporean, bilingual in English and Mandarin. I help you master Chinese through structured online curriculum.</p>
+                <br>
+                <h3 style="color: var(--accent-purple);">Qualifications</h3>
                 <ul style="list-style: none; color: var(--text-dim);">
-                    <li style="margin-bottom: 12px;">✓ Bachelor’s degree from RMIT University, Australia</li>
-                    <li style="margin-bottom: 12px;">✓ TESOL Diploma</li>
-                    <li style="margin-bottom: 12px;">✓ JLPT N3 Japanese Language Proficiency Certification</li>
-                    <li style="margin-bottom: 12px;">✓ Lived/Worked in Singapore, Australia, Philippines, Canada, and Japan</li>
-                    <li style="margin-bottom: 12px;">✓ Teaching experience at elementary school in Fukuoka, Japan</li>
+                    <li>✓ Bachelor’s degree (RMIT Australia)</li>
+                    <li>✓ TESOL Diploma</li>
+                    <li>✓ Teaching experience in Japan</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="pricing">
-        <div style="text-align:center; margin-bottom:20px;">
-            <p style="color:var(--accent-orange); font-weight:800; font-size: 1.2rem;">ALL FEES IN SINGAPORE DOLLARS (SGD)</p>
-        </div>
-        <div class="currency-helper">
-            🌍 Not sure about the price in your currency? 
-            <a href="https://www.google.com/search?q=SGD+to+USD" target="_blank">Click here for an Instant Currency Converter</a>
-        </div>
+        <div style="text-align:center; margin-bottom:20px;"><p style="color:var(--accent-orange); font-weight:800;">ALL FEES IN SINGAPORE DOLLARS (SGD)</p></div>
+        <div class="currency-helper">🌍 <a href="https://www.google.com/search?q=SGD+to+USD" target="_blank">Click here for an Instant Currency Converter</a></div>
         <div class="toggle-wrap">
             <button id="ts" class="t-btn active" onclick="setPr('s')">SINGLE LESSONS</button>
             <button id="tb" class="t-btn" onclick="setPr('b')">LESSON BUNDLES</button>
@@ -231,9 +194,9 @@
                     <div class="qr-box" onclick="pop('wise-20.png')"><img src="wise-20.png"></div>
                     <div class="qr-box" onclick="pop('alipay-20.jpeg')"><img src="alipay-20.jpeg"></div>
                 </div>
-                <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
-                <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <span class="click-hint">🔍 Click QR to enlarge</span>
+                <a href="https://www.paypal.com/ncp/payment/SRLXUXVQHPX5Y" target="_blank" class="btn btn-purple">Pay PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay Wise</a>
             </div>
             <div class="p-card">
                 <h3>50-Min Lesson</h3><h2>$50</h2>
@@ -242,9 +205,9 @@
                     <div class="qr-box" onclick="pop('wise-50.png')"><img src="wise-50.png"></div>
                     <div class="qr-box" onclick="pop('alipay-50.jpeg')"><img src="alipay-50.jpeg"></div>
                 </div>
-                <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
-                <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <span class="click-hint">🔍 Click QR to enlarge</span>
+                <a href="https://www.paypal.com/ncp/payment/2PR4WY2H9E762" target="_blank" class="btn btn-purple">Pay PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay Wise</a>
             </div>
         </div>
         <div id="pb" class="p-grid" style="display:none;">
@@ -255,9 +218,9 @@
                     <div class="qr-box" onclick="pop('wise-245.png')"><img src="wise-245.png"></div>
                     <div class="qr-box" onclick="pop('alipay-245.jpeg')"><img src="alipay-245.jpeg"></div>
                 </div>
-                <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
-                <a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <span class="click-hint">🔍 Click QR to enlarge</span>
+                <a href="https://www.paypal.com/ncp/payment/JXGK2EWQ49Y9L" target="_blank" class="btn btn-purple">Pay PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay Wise</a>
             </div>
             <div class="p-card">
                 <h3>10 Lessons</h3><h2>$490</h2>
@@ -266,9 +229,9 @@
                     <div class="qr-box" onclick="pop('wise-490.png')"><img src="wise-490.png"></div>
                     <div class="qr-box" onclick="pop('alipay-490.jpeg')"><img src="alipay-490.jpeg"></div>
                 </div>
-                <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
-                <a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <span class="click-hint">🔍 Click QR to enlarge</span>
+                <a href="https://www.paypal.com/ncp/payment/YXQ2YVFEACN3Y" target="_blank" class="btn btn-purple">Pay PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay Wise</a>
             </div>
             <div class="p-card">
                 <h3>20 Lessons</h3><h2>$970</h2>
@@ -277,9 +240,9 @@
                     <div class="qr-box" onclick="pop('wise-970.png')"><img src="wise-970.png"></div>
                     <div class="qr-box" onclick="pop('alipay-970.jpeg')"><img src="alipay-970.jpeg"></div>
                 </div>
-                <span class="click-hint" style="margin-bottom: 15px;">🔍 Click QR to enlarge</span>
-                <a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay via PayPal</a>
-                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay via Wise</a>
+                <span class="click-hint">🔍 Click QR to enlarge</span>
+                <a href="https://www.paypal.com/ncp/payment/HBNXK3T4W7QAL" target="_blank" class="btn btn-purple">Pay PayPal</a>
+                <a href="https://wise.com/pay/me/shchen81" target="_blank" class="btn btn-wise" style="margin-top:8px;">Pay Wise</a>
             </div>
         </div>
     </section>
@@ -288,37 +251,44 @@
         <div class="contact-box">
             <span class="contact-icon">👋</span>
             <h2 class="contact-title">Let’s Connect!</h2>
-            <p class="contact-intro">Have a question about the curriculum or scheduling? I'm here to help you on your language journey.</p>
-            
+            <p>Questions? I'm here to help you start your journey.</p>
             <div class="contact-method">
-                <span class="email-label">Preferred Contact Email</span>
+                <span class="email-label">Email Me Directly</span>
                 <a href="mailto:shchen81@gmail.com" class="email-link">shchen81@gmail.com</a>
                 <br>
-                <div class="time-badge">Response time: Usually within 3 days</div>
+                <div class="time-badge">Response time: Within 3 days</div>
             </div>
-            
-            <p style="margin-top: 40px; color: var(--text-dim); font-size: 0.9rem;">Looking forward to hearing from you!</p>
         </div>
     </section>
 
     <div id="modal" onclick="this.style.display='none'"><img id="mImg" src=""></div>
 
     <script>
+        // NO-FLICKER ROUTING LOGIC
         function navTo(id) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-link'));
+            const sections = ['home', 'about', 'pricing', 'contact'];
+            if (!sections.includes(id)) id = 'home';
+
+            sections.forEach(s => {
+                const el = document.getElementById(s);
+                const link = document.getElementById('l-' + s);
+                if (el) el.classList.remove('active');
+                if (link) link.classList.remove('active-link');
+            });
+
+            document.getElementById(id).classList.add('active');
+            const activeLink = document.getElementById('l-' + id);
+            if (activeLink) activeLink.classList.add('active-link');
             
-            const targetSection = document.getElementById(id);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                const link = document.getElementById('l-' + id);
-                if(link) link.classList.add('active-link');
-                
-                // FIXED: This updates the URL so refresh works
-                window.location.hash = id;
-                window.scrollTo(0,0);
+            if (window.location.hash.replace('#', '') !== id) {
+                history.replaceState(null, null, '#' + id);
             }
+            window.scrollTo(0,0);
         }
+
+        // INIT LOAD - Run before images/heavy content to prevent flicker
+        const currentHash = window.location.hash.replace('#', '');
+        navTo(currentHash || 'home');
 
         function setPr(t) {
             document.getElementById('ps').style.display = t === 's' ? 'grid' : 'none';
@@ -328,16 +298,9 @@
         }
 
         function pop(s) { document.getElementById('mImg').src = s; document.getElementById('modal').style.display = 'flex'; }
-
-        // FIXED: This runs when the page loads to check if the user refreshed a specific tab
-        window.addEventListener('load', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && ['home', 'about', 'pricing', 'contact'].includes(hash)) {
-                navTo(hash);
-            } else {
-                navTo('home');
-            }
-        });
+        
+        // Handle back/forward browser buttons
+        window.onpopstate = () => navTo(window.location.hash.replace('#', ''));
     </script>
 </body>
 </html>
